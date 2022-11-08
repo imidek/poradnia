@@ -1,12 +1,15 @@
-const btn = document.querySelector('button');
-const lists = document.querySelectorAll('li')
+const allBtn = document.querySelectorAll("button");
+const recomm = document.querySelector(".recomm");
 
-btn.addEventListener('click', e=>{
-    alert(e.target)
-})
+allBtn.forEach((btn) => {
+	btn.addEventListener(
+		"click",
+		(e) => {
+			console.log(e.target.value);
+			recomm.innerHTML += `<p>${e.target.value}</p>`;
+			e.target.style.backgroundColor = "grey";
+		},
+		{ once: true }
+	);
+});
 
-lists.forEach(list=>{
-    list.addEventListener('click',e=>{
-        console.log(e.target);
-    })
-})
